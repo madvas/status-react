@@ -1,5 +1,7 @@
 (ns status-im.components.tabs.styles
-  (:require [status-im.components.styles :refer [color-white]]))
+  (:require [status-im.components.styles :as st]
+            [status-im.utils.platform :as p]))
+
 
 (def tabs-height 56)
 (def tab-height (dec tabs-height))
@@ -16,7 +18,7 @@
    :left             0
    :right            0
    :height           tabs-height
-   :background-color color-white
+   :background-color st/color-white
    :margin-bottom    (if hidden? (- tabs-height) 0)
    :transform        [{:translateY 1}]})
 
@@ -37,12 +39,12 @@
    :justifyContent :center
    :alignItems     :center})
 
-(def tab-title
-  {:font-size  12
+(defn tab-title [active?]
+  {:font-size  (if-not (or active? p/ios?) 12 14)
    :height     16
    :min-width  60
    :text-align :center
-   :color      "#6e93d8"})
+   :color      (if active? st/color-light-blue st/color-gray4)})
 
 (def tab-icon
   {:width        24
@@ -50,17 +52,11 @@
    :marginBottom 1
    :align-self   :center})
 
-(defn tab-container [active?]
+(def tab-container
   {:flex             1
    :height           tab-height
    :justifyContent   :center
-   :alignItems       :center
-   :padding-top      (if active? 0 16)})
-
-(defn animated-offset [value]
-  {:top value
-   :justifyContent :center
-   :alignItems     :center})
+   :alignItems       :center})
 
 (def main-swiper
   {:position         :absolute

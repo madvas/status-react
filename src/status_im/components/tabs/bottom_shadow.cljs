@@ -5,7 +5,7 @@
 
 (defn bottom-shadow-view []
   (if (get-in platform-specific [:tabs :tab-shadows?])
-    [linear-gradient {:locations [0 0.8 1]
+    [linear-gradient {:locations [0 0.98 1]
                       :colors    ["rgba(24, 52, 76, 0)" "rgba(24, 52, 76, 0.085)" "rgba(24, 52, 76, 0.165)"]
                       :style     (merge
                                    st/bottom-gradient

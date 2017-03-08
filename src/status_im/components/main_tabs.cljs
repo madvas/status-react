@@ -25,21 +25,24 @@
             [cljs.core.async :as a]))
 
 (def tab-list
-  [{:view-id :chat-list
-    :title   (label :t/chats)
-    :screen  chats-list
-    :icon    :icon_tab_chats
-    :index   0}
-   {:view-id :discover
-    :title   (label :t/discover)
-    :screen  discover
-    :icon    :icon_tab_discover
-    :index   1}
-   {:view-id :contact-list
-    :title   (label :t/contacts)
-    :screen  contact-list
-    :icon    :icon_tab_contacts
-    :index   2}])
+  [{:view-id       :chat-list
+    :title         (label :t/chats)
+    :screen        chats-list
+    :icon-inactive :icon-chats
+    :icon-active   :icon_chats-active
+    :index         0}
+   {:view-id       :discover
+    :title         (label :t/discover)
+    :screen        discover
+    :icon-inactive :icon-discover
+    :icon-active   :icon_discover-active
+    :index         1}
+   {:view-id       :contact-list
+    :title         (label :t/contacts)
+    :screen        contact-list
+    :icon-inactive :icon-contacts
+    :icon-active   :icon_contacts-active
+    :index         2}])
 
 (defn animation-logic [{:keys [offsets val tab-id to-tab-id]}]
   (fn [_]
