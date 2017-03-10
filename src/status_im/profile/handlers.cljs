@@ -44,3 +44,9 @@
     (fn [db _]
       (dispatch [:navigate-to :chat console-chat-id])
       (dispatch [:set-chat-command :phone]))))
+
+(register-handler :open-chat-with-the-send-transaction
+  (u/side-effect!
+    (fn [db [_ chat-id]]
+      (dispatch [:navigate-to :chat chat-id])
+      (dispatch [:set-chat-command :send]))))

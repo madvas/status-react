@@ -148,11 +148,10 @@
     :default-chat-icon-text st/default-chat-icon-text}])
 
 (defn profile-icon-view [photo-path name color badge-type]
-  (let [styles {:container              st/container-profile
-                :online-view            st/online-view-profile
+  (let [styles {:online-view            st/online-view-profile
                 :online-dot-left        st/online-dot-left-profile
                 :online-dot-right       st/online-dot-right-profile
-                :size                   64
+                :size                   56
                 :chat-icon              st/chat-icon-profile
                 :default-chat-icon      (st/default-chat-icon-profile color)
                 :default-chat-icon-text st/default-chat-icon-text}]
